@@ -6,10 +6,11 @@ export default defineConfig({
   e2e: {
     video: false,
     screenshotOnRunFailure: false,
+    chromeWebSecurity: false,
     setupNodeEvents(on, config) {
-      // modify config values examples
-      // config.defaultCommandTimeout = 10000
-
+      config.defaultCommandTimeout = 20000;
+      config.responseTimeout = 20000;
+      config.pageLoadTimeout = 60000;
       // IMPORTANT return the updated config object
       return config;
     },
