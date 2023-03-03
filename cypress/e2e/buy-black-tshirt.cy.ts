@@ -1,25 +1,32 @@
+import {
+  LoginPage,
+  ProductsListPage,
+  ItemPage,
+  ShoppingCartPage,
+  InformationPage,
+  OverviewPage,
+  CheckoutCompletePage,
+} from "../pages/index";
+
+const loginPage = new LoginPage();
+const productsListPage = new ProductsListPage();
+const itemPage = new ItemPage();
+const shoppingCartPage = new ShoppingCartPage();
+const informationPage = new InformationPage();
+const overviewPage = new OverviewPage();
+const checkoutCompletePage = new CheckoutCompletePage();
+
 describe("Buy a black t-shirt", () => {
   it("then the t-shirt should be bought", () => {
-    cy.visit("https://www.saucedemo.com/");
-    cy.get(".login-box > form > div > input").first().type("standard_user");
-    cy.get(".login-box > form > div > input").last().type("secret_sauce");
-    cy.get("input[type='submit']").click();
+    loginPage.visitLoginPage();
+    loginPage.signIn();
 
-    cy.get(".inventory_item_label > a").eq(2).click();
-    cy.get("button.btn_primary").click();
-    cy.get("#shopping_cart_container").click();
-    cy.get("#checkout").click();
-
-    cy.get("#first-name").type("Cypress");
-    cy.get("#last-name").type("Workshop");
-    cy.get("#postal-code").type("00000");
-    cy.get("#continue").click();
-
-    cy.get("#finish").click();
-
-    cy.get("#contents_wrapper > .checkout_complete_container > h2").should(
-        "have.text",
-        "Thank you for your order!",
-    );
+    productsListPage.selectShirt();
+    itemPage.addToCart();
+    itemPage.goToCart();
+    shoppingCartPage.goToCheckout();
+    informationPage.fillAndSubmitForm("Cypress", "Workshop", "00000");
+    overviewPage.finishPurchase();
+    checkoutCompletePage.validateCompletedPurchase("Thank you for your order!");
   });
 });
