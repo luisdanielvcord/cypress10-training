@@ -2,11 +2,11 @@ class ProductsListPage {
   private itemToPurchase: string;
 
   constructor() {
-    this.itemToPurchase = ".inventory_item_label > a";
+    this.itemToPurchase = "Bolt T-Shirt";
   }
 
   public selectShirt(): void {
-    cy.get(this.itemToPurchase).eq(2).click();
+    cy.contains(this.itemToPurchase).click();
   }
 }
 

@@ -3,7 +3,7 @@ class ItemPage {
   private cartButton: string;
 
   constructor() {
-    this.addToCartButton = "button.btn_primary";
+    this.addToCartButton = "#add-to-cart-sauce-labs-bolt-t-shirt";
     this.cartButton = "#shopping_cart_container";
   }
 
