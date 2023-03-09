@@ -2,8 +2,7 @@ class CheckoutCompletePage {
   private orderCompletedText: string;
 
   constructor() {
-    this.orderCompletedText =
-      "#contents_wrapper > .checkout_complete_container > h2";
+    this.orderCompletedText = ".complete-header";
   }
 
   public validateCompletedPurchase(textToMatch: string): void {

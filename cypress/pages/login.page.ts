@@ -6,18 +6,18 @@ class LoginPage {
 
   constructor() {
     this.loginURL = "http://saucedemo.com/";
-    this.userNameField = ".login-box > form > div > input#user-name";
-    this.passwordField = ".login-box > form > div > input#password";
-    this.loginButton = "input[type='submit']";
+    this.userNameField = "#user-name";
+    this.passwordField = "#password";
+    this.loginButton = "#login-button";
   }
 
   public visitLoginPage(): void {
     cy.visit(this.loginURL);
   }
 
-  public signIn(): void {
-    cy.get(this.userNameField).type("standard_user");
-    cy.get(this.passwordField).type("secret_sauce");
+  public signIn(username: string, password: string): void {
+    cy.get(this.userNameField).type(username);
+    cy.get(this.passwordField).type(password);
     cy.get(this.loginButton).click();
   }
 }

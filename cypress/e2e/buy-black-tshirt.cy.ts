@@ -19,7 +19,7 @@ const checkoutCompletePage = new CheckoutCompletePage();
 describe("Buy a black t-shirt", () => {
   it("then the t-shirt should be bought", () => {
     loginPage.visitLoginPage();
-    loginPage.signIn();
+    loginPage.signIn("standard_user", "secret_sauce");
 
     productsListPage.selectShirt();
     itemPage.addToCart();
