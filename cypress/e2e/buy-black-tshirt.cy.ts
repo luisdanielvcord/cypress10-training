@@ -19,7 +19,7 @@ const checkoutCompletePage = new CheckoutCompletePage();
 describe("Buy a black t-shirt", () => {
   it("then the t-shirt should be bought", () => {
     // Arrange
-    const validUser = { username: "standard_user", password: "secret_sauce" };
+    const validUser = {username: "standard_user", password: "secret_sauce"};
     const formInformation = {
       firstName: "Cypress",
       lastName: "Workshop",
@@ -34,9 +34,9 @@ describe("Buy a black t-shirt", () => {
     itemPage.goToCart();
     shoppingCartPage.goToCheckout();
     informationPage.fillAndSubmitForm(
-      formInformation.firstName,
-      formInformation.lastName,
-      formInformation.postalCode
+        formInformation.firstName,
+        formInformation.lastName,
+        formInformation.postalCode,
     );
     overviewPage.finishPurchase();
     // Assertion
@@ -55,9 +55,9 @@ describe("Buy a black t-shirt", () => {
 
   it("Login in sauce Page with Valid credentials", () => {
     // Arrange
-    const validUser = { username: "standard_user", password: "secret_sauce" };
-    const backpackTitle = "Sauce Labs Backpack"
-    const backpackPrice = "$29.99"
+    const validUser = {username: "standard_user", password: "secret_sauce"};
+    const backpackTitle = "Sauce Labs Backpack";
+    const backpackPrice = "$29.99";
     // Action
     loginPage.visitLoginPage();
     loginPage.signIn(validUser.username, validUser.password);

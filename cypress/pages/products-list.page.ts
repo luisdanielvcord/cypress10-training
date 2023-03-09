@@ -19,7 +19,10 @@ class ProductsListPage {
   }
 
   private findProductByName(product: string): any {
-    return cy.get(this.containerItems).find(this.availableItems).filter(`:contains("${product}")`);
+    return cy
+      .get(this.containerItems)
+      .find(this.availableItems)
+      .filter(`:contains("${product}")`);
   }
 
   public selectProduct(product: string): void {
