@@ -20,6 +20,7 @@ describe("Buy a black t-shirt", () => {
   it("then the t-shirt should be bought", () => {
     // Arrange
     const validUser = {username: "standard_user", password: "secret_sauce"};
+    const productToSelect = "Sauce Labs Bike Light";
     const formInformation = {
       firstName: "Cypress",
       lastName: "Workshop",
@@ -29,7 +30,7 @@ describe("Buy a black t-shirt", () => {
     // Action
     loginPage.visitLoginPage();
     loginPage.signIn(validUser.username, validUser.password);
-    productsListPage.selectProduct("Sauce Labs Bike Light");
+    productsListPage.selectProduct(productToSelect);
     itemPage.addToCart();
     itemPage.goToCart();
     shoppingCartPage.goToCheckout();
