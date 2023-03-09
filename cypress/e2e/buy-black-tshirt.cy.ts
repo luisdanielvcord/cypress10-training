@@ -18,15 +18,54 @@ const checkoutCompletePage = new CheckoutCompletePage();
 
 describe("Buy a black t-shirt", () => {
   it("then the t-shirt should be bought", () => {
+    // Arrange
+    const validUser = { username: "standard_user", password: "secret_sauce" };
+    const formInformation = {
+      firstName: "Cypress",
+      lastName: "Workshop",
+      postalCode: "00000",
+    };
+    const completedPurchaseText = "Thank you for your order!";
+    // Action
     loginPage.visitLoginPage();
-    loginPage.signIn("standard_user", "secret_sauce");
-
-    productsListPage.selectShirt();
+    loginPage.signIn(validUser.username, validUser.password);
+    productsListPage.selectProduct("Sauce Labs Bike Light");
     itemPage.addToCart();
     itemPage.goToCart();
     shoppingCartPage.goToCheckout();
-    informationPage.fillAndSubmitForm("Cypress", "Workshop", "00000");
+    informationPage.fillAndSubmitForm(
+      formInformation.firstName,
+      formInformation.lastName,
+      formInformation.postalCode
+    );
     overviewPage.finishPurchase();
-    checkoutCompletePage.validateCompletedPurchase("Thank you for your order!");
+    // Assertion
+    checkoutCompletePage.validateCompletedPurchase(completedPurchaseText);
+  });
+
+  it("Login in sauce Page with Empty fields", () => {
+    // Arrange
+    const errorMessageText = "Epic sadface: Username is required";
+    // Action
+    loginPage.visitLoginPage();
+    loginPage.clickLoginButton();
+    // Assertion
+    loginPage.verifyErrorMessage(errorMessageText);
+  });
+
+  it("Login in sauce Page with Valid credentials", () => {
+    // Arrange
+    const validUser = { username: "standard_user", password: "secret_sauce" };
+    const backpackTitle = "Sauce Labs Backpack"
+    const backpackPrice = "$29.99"
+    // Action
+    loginPage.visitLoginPage();
+    loginPage.signIn(validUser.username, validUser.password);
+    productsListPage.addItem();
+    // Assertion
+    productsListPage.displayContainer();
+    productsListPage.verifyTitle(backpackTitle);
+    productsListPage.verifyPrice(backpackPrice);
   });
 });
+
