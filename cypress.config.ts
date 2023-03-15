@@ -15,6 +15,8 @@ export default defineConfig({
         json: true,
       },
     },
+    viewportWidth: 1920,
+    viewportHeight: 1080,
     video: false,
     screenshotOnRunFailure: false,
     chromeWebSecurity: false,
