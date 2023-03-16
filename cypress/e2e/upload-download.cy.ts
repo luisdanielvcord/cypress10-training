@@ -1,8 +1,9 @@
-import {UploadPage} from "../pages/index";
+import { DownloadPage, UploadPage } from "../pages/index";
 
 const uploadPage = new UploadPage();
+const downloadPage = new DownloadPage();
 
-describe("Uploading files", () => {
+describe("Uploading and downloading files", () => {
   it("Uploading a 1440P picture", () => {
     // Arrange
     const file = "file-to-upload.jpg";
@@ -11,5 +12,15 @@ describe("Uploading files", () => {
     uploadPage.uploadAndSubmit(file);
     // Assertion
     uploadPage.validateUploadedFile(file);
+  });
+
+  it("Downloading a picture", () => {
+    // Arrange
+    const downloadedFileName = "sampleFile.jpeg";
+    // Action
+    downloadPage.visitURL();
+    downloadPage.downloadPicture();
+    // Assertion
+    downloadPage.validateDownloadedFile(downloadedFileName);
   });
 });
