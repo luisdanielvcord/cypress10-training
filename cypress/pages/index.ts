@@ -6,6 +6,7 @@ export { InformationPage } from "./information.page";
 export { OverviewPage } from "./overview.page";
 export { CheckoutCompletePage } from "./checkout-complete.page";
 export { PersonalFormPage } from "./personal-form.page";
+export { UploadPage } from "./upload.page";
 
 
 
