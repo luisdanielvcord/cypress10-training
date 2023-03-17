@@ -15,11 +15,11 @@ describe("IFrames", () => {
   it("CSS IFrame", () => {
     // Arrange
     const iFrameTitleCSSPage = "CSS Tutorial";
-    const pathCSSPage = "/css";
     // Action
     iFramePage.visit();
-    iFramePage.goToCssPageIFrame(pathCSSPage);
+    iFramePage.goToCssPageIFrame();
     // Assertion
     iFramePage.getFrameTitle(iFrameTitleCSSPage);
   });
 });
+

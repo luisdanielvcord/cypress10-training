@@ -3,12 +3,14 @@ class IFramePage {
   private pageIFrame: string;
   private pageTitle: string;
   private linkCSSPage: string;
+  private pathCSSPage: string;
 
   constructor() {
     this.loginURL = "https://www.w3schools.com/html/html_iframe.asp";
     this.pageIFrame = '[title="W3Schools HTML Tutorial"]';
     this.linkCSSPage = '[title="CSS Tutorial"]';
     this.pageTitle = "#main > h1";
+    this.pathCSSPage = "/css";
   }
 
   public visit() {
@@ -21,9 +23,9 @@ class IFramePage {
       .should("have.text", titleToMatch);
   }
 
-  public goToCssPageIFrame(path: string) {
+  public goToCssPageIFrame() {
     cy.iframe(this.pageIFrame).find(this.linkCSSPage).click();
-    cy.frameLoaded(this.pageIFrame, { url: path });
+    cy.frameLoaded(this.pageIFrame, { url: this.pathCSSPage });
   }
 }
 
