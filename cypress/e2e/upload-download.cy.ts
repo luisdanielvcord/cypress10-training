@@ -1,4 +1,4 @@
-import { DownloadPage, UploadPage } from "../pages/index";
+import {DownloadPage, UploadPage} from "../pages/index";
 
 const uploadPage = new UploadPage();
 const downloadPage = new DownloadPage();
