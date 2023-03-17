@@ -7,6 +7,7 @@
 
 cypress/results/*
 cypress/reports/*
+cypress/downloads/*
 cypress/screenshots/*
 cypress/videos/*
 cypress/e2e/1-getting-started/*

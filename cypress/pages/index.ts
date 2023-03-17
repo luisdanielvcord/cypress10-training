@@ -7,3 +7,4 @@ export { OverviewPage } from "./overview.page";
 export { CheckoutCompletePage } from "./checkout-complete.page";
 export { PersonalFormPage } from "./personal-form.page";
 export { UploadPage } from "./upload.page";
+export { DownloadPage } from "./download.page";
