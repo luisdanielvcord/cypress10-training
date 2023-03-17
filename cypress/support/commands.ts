@@ -27,6 +27,7 @@
 // Ignoring uncaught exceptions since errors from external apps should not stop de workshop
 
 import 'cypress-file-upload';
+import 'cypress-iframe';
 
 Cypress.on("uncaught:exception", (err, runnable) => {
   // returning false here prevents Cypress from
