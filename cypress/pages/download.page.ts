@@ -16,7 +16,7 @@ class DownloadPage {
   }
 
   public validateDownloadedFile(fileName: string): void {
-    cy.readFile(`cypress\\Downloads\\${fileName}`).should("exist");
+    cy.readFile(`cypress/downloads/${fileName}`).should("exist");
   }
 }
 
